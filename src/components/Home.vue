@@ -1,52 +1,189 @@
 <template>
   <div class='index'>
     <!-- banner图 -->
-    <div class='banner'>
+    <div class='banner' ref='banner'>
       <img src="~@/assets/liangfan0826_01.jpg" alt="">
       <img src="~@/assets/liangfan0826_02.jpg" alt="">
     </div>
 
     <!-- nav -->
-    <div id="top_nav_fix" class="topnav">
+    <div id="top_nav_fix" ref="nav" class="topnav" :class="{navBarWrap: navBarFixed}">
       <div class="tn">
           <div id="nav-smartSetup" class="nav_smart">
               <ul>
-                  <li><a class="cur">钜惠福利</a></li>
-                  <li><a>会场直达</a></li>
-                  <li><a>底价拼团</a></li>
-                  <li><a>超级优惠</a></li>
-                  <li><a>精品量贩</a></li>
-                  <li><a>海外奶粉</a></li>
-                  <li><a>婴幼营养</a></li>
-                  <li><a>米粉辅食</a></li>
-                  <li><a>自营尿裤</a></li>
-                  <li><a>宝宝洗护</a></li>
-                  <li><a>奶瓶喂养</a></li>
-                  <li><a>精品童装</a></li>
-                  <li><a>护肤美妆</a></li>
-                  <li><a>妈妈用品</a></li>
-                  <li><a>家人营养</a></li>
-                  <li><a>美食生活</a></li>
-                  <li><a>更多会场</a></li>
+                <li v-for="navItem in navData">
+                  <a
+                    ref="navDom"
+                    :class="{cur: navItem.active}"
+                    :data-index="navItem.index"
+                    @click="scrollTo"
+                  >{{navItem.name}}</a>
+                </li>
               </ul>
           </div>
           <div class="clear"></div>
       </div>
     </div>
 
-    <div>1<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/></div>
-    <div>2<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/></div>
-    <div>3<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/></div>
-    <div>4<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/></div>
-    <div>5<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/></div>
+    <div id="display1" ref="display1">
+      <CountDown :gap="gap"></CountDown>
+    </div>
+    <div id="display2" ref="display2">2<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/></div>
+    <div id="display3" ref="display3">3<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/></div>
+    <div id="display4" ref="display4">4<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/></div>
+    <div id="display5" ref="display5">5<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/></div>
   </div>
 </template>
 
 <script>
+  import helper from '@/helper/basicHelper.js'
+  import CountDown from '@/components/base/CountDown'
+  // import WelfareRender from '@/components/base/welfare-render'
+
   export default{
     name: 'Home',
+    components: {
+      CountDown,
+      // WelfareRender
+    },
     data () {
-      return {}
+      return {
+        gap: 80000,
+        navBarFixed: false,
+        navData: [
+          {
+            name: '钜惠福利',
+            active: true,
+            index: 1,
+          },
+          {
+            name: '会场直达',
+            active: false,
+            index: 2
+          },
+          {
+            name: '底价拼团',
+            active: false,
+            index: 3
+          },
+          {
+            name: '超级优惠',
+            active: false,
+            index: 4
+          },
+          {
+            name: '精品量贩',
+            active: false,
+            index: 5
+          },
+          {
+            name: '海外奶粉',
+            active: false,
+            index: 6
+          },
+          {
+            name: '婴幼营养',
+            active: false,
+            index: 7
+          },
+          {
+            name: '米粉辅食',
+            active: false,
+            index: 8
+          },
+          {
+            name: '自营尿裤',
+            active: false,
+            index: 9
+          },
+          {
+            name: '宝宝洗护',
+            active: false,
+            index: 10
+          },
+          {
+            name: '奶瓶喂养',
+            active: false,
+            index: 11
+          },
+          {
+            name: '精品童装',
+            active: false,
+            index: 12
+          },
+          {
+            name: '护肤美妆',
+            active: false,
+            index: 13
+          },
+          {
+            name: '妈妈用品',
+            active: false,
+            index: 14
+          },
+          {
+            name: '家人营养',
+            active: false,
+            index: 15
+          },
+          {
+            name: '美食生活',
+            active: false,
+            index: 16
+          },
+          {
+            name: '更多会场',
+            active: false,
+            index: 17
+          }
+        ]
+      }
+    },
+    mounted: function(){
+      // 事件监听滚动条
+      window.addEventListener('scroll', this.watchScroll, true)
+    },
+    methods: {
+      scrollTo: function(event){
+        let index = event.target.dataset.index;
+        let idName = 'display' + index;
+        document.getElementById(idName).scrollIntoView();
+        this.activeNav(index);
+      },
+      activeNav: function(index){
+        let newData = [];
+        for(let item of this.navData){
+          if(index == item.index){
+            item.active = true;
+          }else{
+            item.active = false;
+          }
+        }
+      },
+      watchScroll: function(){
+        //init
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+        let height = this.$refs.banner.offsetHeight;
+
+        //fixd
+        if (scrollTop > height) {
+          this.navBarFixed = true
+        } else {
+          this.navBarFixed = false
+        }
+
+        //切换
+        let preHeight = height + this.$refs.nav.offsetHeight;
+        let sumHeight = preHeight;
+        for(let item of this.navData){
+          let idName = 'display' + item.index;
+          if(scrollTop < sumHeight){
+            this.activeNav(item.index);
+            break;
+          }
+          sumHeight += this.$refs[idName].offsetHeight
+        }
+      }
     }
   }
 </script>
@@ -55,6 +192,12 @@
   body, div, p, img {
       margin: 0px;
       padding: 0px;
+  }
+
+  .navBarWrap {
+    position:fixed;
+    top:0;
+    z-index:999;
   }
 
   .banner{
