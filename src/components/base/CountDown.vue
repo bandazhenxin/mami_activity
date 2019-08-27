@@ -52,7 +52,8 @@ export default {
     font-size: 16px;
     font-family: "PingFang SC Regular";
     color: #164676;
-    margin: 15px 0;
+    padding: 15px 0;
+    background-color: #DCEAF7;
 
     font{
       font-size:16px;

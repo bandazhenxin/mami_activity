@@ -27,6 +27,7 @@
 
     <div id="display1" ref="display1">
       <CountDown :gap="gap"></CountDown>
+      <welfare-render></welfare-render>
     </div>
     <div id="display2" ref="display2">2<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/></div>
     <div id="display3" ref="display3">3<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/></div>
@@ -38,13 +39,13 @@
 <script>
   import helper from '@/helper/basicHelper.js'
   import CountDown from '@/components/base/CountDown'
-  // import WelfareRender from '@/components/base/welfare-render'
+  import WelfareRender from '@/components/base/welfare-render'
 
   export default{
     name: 'Home',
     components: {
       CountDown,
-      // WelfareRender
+      WelfareRender
     },
     data () {
       return {
@@ -280,5 +281,9 @@
           clear: both;
         }
       }
+  }
+
+  #display1{
+    background-color: #DCEAF7;
   }
 </style>
