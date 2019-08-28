@@ -7,6 +7,11 @@ import Home from '@/components/Home'
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
+  base: '/dist',
+  scorllBehavior: () => ({
+    y: 0
+  }),
   routes: [
     {
       path: '/',

@@ -14,6 +14,7 @@
                 <li v-for="navItem in navData">
                   <a
                     ref="navDom"
+                    :id="'nav' + navItem.index"
                     :class="{cur: navItem.active}"
                     :data-index="navItem.index"
                     @click="scrollTo"
@@ -25,14 +26,69 @@
       </div>
     </div>
 
-    <div id="display1" ref="display1">
+    <!-- render -->
+    <div id="display1" ref="display1" class='basic-background'>
       <CountDown :gap="gap"></CountDown>
       <welfare-render></welfare-render>
     </div>
-    <div id="display2" ref="display2">2<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/></div>
-    <div id="display3" ref="display3">3<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/></div>
-    <div id="display4" ref="display4">4<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/></div>
-    <div id="display5" ref="display5">5<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/></div>
+    <div id="display2" ref="display2" class='basic-background'>
+      <hall-render></hall-render>
+      <hot-hall-render></hot-hall-render>
+    </div>
+    <div id="display3" ref="display3" class='basic-background'>
+      <assemble-render></assemble-render>
+    </div>
+    <div id="display4" ref="display4" class='basic-background'>
+      <selected-render></selected-render>
+    </div>
+    <div id="display5" ref="display5" class='basic-background'>
+      <exquisite-foreign-render></exquisite-foreign-render>
+    </div>
+
+    <div id="display6" ref="display6" class='basic-background'>
+      <overseas-milk-render></overseas-milk-render>
+    </div>
+    <div id="display7" ref="display7" class='basic-background'>
+      <baby-nutrition-render></baby-nutrition-render>
+    </div>
+    <div id="display8" ref="display8" class='basic-background'>
+      <rice-noodles-render></rice-noodles-render>
+    </div>
+    <div id="display9" ref="display9" class='basic-background'>
+      <diaper-render></diaper-render>
+    </div>
+    <div id="display10" ref="display10" class='basic-background'>
+      <wash-care-render></wash-care-render>
+    </div>
+    <div id="display11" ref="display11" class='basic-background'>
+      <feeding-bottle-render></feeding-bottle-render>
+    </div>
+    <div id="display12" ref="display12" class='basic-background'>
+      <wear-render></wear-render>
+    </div>
+    <div id="display13" ref="display13" class='basic-background'>
+      <makeup-render></makeup-render>
+    </div>
+    <div id="display14" ref="display14" class='basic-background'>
+      <mother-use-render></mother-use-render>
+    </div>
+    <div id="display15" ref="display15" class='basic-background'>
+      <nutrition-render></nutrition-render>
+    </div>
+    <div id="display16" ref="display16" class='basic-background'>
+      <life-render></life-render>
+    </div>
+    <div id="display17" ref="display17" class='basic-background'>
+      <more-hall-render></more-hall-render>
+    </div>
+
+    <div class='basic-render'>
+      <div class="item1">
+        <a href="http://m.guojimami.com/clearance.php"><img src="@/assets/queen38sj_88.jpg" alt=""></a>
+      </div>
+    </div>
+    
+    <talent-notes></talent-notes>
   </div>
 </template>
 
@@ -40,12 +96,50 @@
   import helper from '@/helper/basicHelper.js'
   import CountDown from '@/components/base/CountDown'
   import WelfareRender from '@/components/base/welfare-render'
+  import HallRender from '@/components/base/hall-render'
+  import HotHallRender from '@/components/base/hot-hall-render'
+  import AssembleRender from '@/components/base/assemble-render'
+  import SelectedRender from '@/components/base/selected-render'
+  import ExquisiteForeignRender from '@/components/base/exquisite-foreign-render'
+  import OverseasMilkRender from '@/components/base/overseas-milk-render'
+  import BabyNutritionRender  from '@/components/base/baby-nutrition-render'
+  import RiceNoodlesRender from '@/components/base/rice-noodles-render'
+  import DiaperRender from '@/components/base/diaper-render'
+  import WashCareRender from '@/components/base/wash-care-render'
+  import FeedingBottleRender from '@/components/base/feeding-bottle-render'
+  import WearRender from '@/components/base/wear-render'
+  import MakeupRender from '@/components/base/makeup-render'
+  import MotherUseRender from '@/components/base/mother-use-render'
+  import NutritionRender from '@/components/base/nutrition-render'
+  import LifeRender from '@/components/base/life-render'
+  import MoreHallRender from '@/components/base/more-hall-render'
+  import TalentNotes from '@/components/base/talent-notes'
+
+  var preTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
 
   export default{
     name: 'Home',
     components: {
       CountDown,
-      WelfareRender
+      WelfareRender,
+      HallRender,
+      HotHallRender,
+      AssembleRender,
+      SelectedRender,
+      ExquisiteForeignRender,
+      OverseasMilkRender,
+      BabyNutritionRender,
+      RiceNoodlesRender,
+      DiaperRender,
+      WashCareRender,
+      FeedingBottleRender,
+      WearRender,
+      MakeupRender,
+      MotherUseRender,
+      NutritionRender,
+      LifeRender,
+      MoreHallRender,
+      TalentNotes
     },
     data () {
       return {
@@ -160,13 +254,23 @@
             item.active = false;
           }
         }
+
+        if(index > 4){
+          document.getElementsByClassName('nav_smart')[0].scrollLeft = 68 * (index - 4);
+        }else{
+          document.getElementsByClassName('nav_smart')[0].scrollLeft = 68 * (index - 4);
+        }
       },
       watchScroll: function(){
         //init
         let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
         let height = this.$refs.banner.offsetHeight;
 
+        //检测纵向滑动
+        if(preTop == scrollTop) return;
+
         //fixd
+        preTop = scrollTop;
         if (scrollTop > height) {
           this.navBarFixed = true
         } else {
@@ -277,13 +381,128 @@
             }
           }
         }
-        .clear {
-          clear: both;
-        }
       }
   }
 
-  #display1{
+  .basic-render{
+    img{
+      margin: 0px;
+      padding: 0px;
+      border: 0px;
+    }
+
+    .item1 img{
+      display: block;
+      width: 100%;
+    }
+
+    .content{
+      width: 100%;
+      margin: 0px auto;
+
+      .ny2015_germany_body4 {
+        width: 100%;
+        margin: 0px auto;
+      }
+      .goods1 {
+        width: 47%;
+        overflow: hidden;
+        margin-left: 2%;
+        margin-top: 10px;
+        padding-bottom: 10px;
+        background-color: #fff;
+        float: left;
+        text-align: center;
+        position: relative;
+
+        .goods_img img{
+          width: 160px;
+          height: 160px;
+          margin-top: 15px;
+        }
+
+        .jiaobiao3 img{
+          position: absolute;
+          top: 0px;
+          width: 50px;
+          left: 0px;
+        }
+
+        .zhuanxiang {
+          position: absolute;
+          color: #fff;
+          padding: 1% 3%;
+          margin-top: -30px;
+          margin-bottom: 5px;
+          border-radius: 0px 80px 80px 0px;
+          background: linear-gradient(to right, #f1564a , #f03275);
+          opacity: 0.8;
+          filter: alpha(opacity=80);
+        }
+
+        .zhuanxiang1 {
+          position: absolute;
+          color: #fff;
+          padding: 1% 3%;
+          margin-top: -55px;
+          margin-bottom: 5px;
+          border-radius: 0px 80px 80px 0px;
+          background: linear-gradient(to right, #f8863f , #e22926);
+          opacity: 0.8;
+          filter: alpha(opacity=80);
+        }
+
+        .goods_name {
+          height: 32px;
+          padding: 0 10px;
+          text-align: left;
+          line-height: 16px;
+          overflow: hidden;
+          margin-top: 10px;
+
+          a{
+            font-family: Arial;
+            font-size: 13px;
+            color: #141414;
+            text-decoration: none;
+          }
+        }
+
+        .price {
+          width: 96%;
+          height: 20px;
+          padding-left: 4%;
+          font-family: Arial;
+          color: #ff2837;
+          text-align: left;
+          margin-top: 4px;
+        }
+
+        .buy {
+          width: 50px;
+          height: 24px;
+          text-align: right;
+          position: absolute;
+          right: 5px;
+          bottom: 5px;
+
+          a{
+            display: block;
+          }
+
+          img{
+            display: inline-block;
+            width: 75%;
+          }
+        }
+      }
+    }
+  }
+
+  .basic-background{
     background-color: #DCEAF7;
+  }
+  .clear {
+    clear: both;
   }
 </style>
