@@ -11,6 +11,10 @@ import Mint from 'mint-ui'
 import 'mint-ui/lib/style.css'
 Vue.use(Mint)
 
+//axios
+import axios from 'axios'
+Vue.prototype.$http = axios
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

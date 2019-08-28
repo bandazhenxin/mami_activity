@@ -2,8 +2,7 @@
   <div class='index'>
     <!-- banner图 -->
     <div class='banner' ref='banner'>
-      <img src="~@/assets/liangfan0826_01.jpg" alt="">
-      <img src="~@/assets/liangfan0826_02.jpg" alt="">
+      <img v-for="banner in bannerList" v-lazy="banner.img" alt="" />
     </div>
 
     <!-- nav -->
@@ -87,7 +86,7 @@
         <a href="http://m.guojimami.com/clearance.php"><img src="@/assets/queen38sj_88.jpg" alt=""></a>
       </div>
     </div>
-    
+
     <talent-notes></talent-notes>
   </div>
 </template>
@@ -145,6 +144,10 @@
       return {
         gap: 80000,
         navBarFixed: false,
+        bannerList:[
+          {img:require("@/assets/liangfan0826_01.jpg")},
+          {img:require("@/assets/liangfan0826_02.jpg")},
+        ],
         navData: [
           {
             name: '钜惠福利',
