@@ -7,11 +7,11 @@
       <a href="http://m.guojimami.com/2019summer.php"><img src="@/assets/liangfan0826_31.jpg"  alt="拼团"/></a>
     </div>
     <div class="content">
-      <div class="ny2015_germany_body4">
+      <div class="ny2015_germany_body4" v-for="item in test">
         <div class="goods1">
           <p class="goods_img">
             <a href="http://m.guojimami.com/goods-23405-t2160.htm">
-              <img src="http://m.guojimami.com/images/201906/thumb_img/23405_thumb_G_1560722307472.jpg" alt="【4件】HiPP 德国喜宝有机天然苹果味磨牙米饼 海外本土原版">
+              <img v-lazy="'http://m.guojimami.com/images/201906/thumb_img/23405_thumb_G_1560722307472.jpg'" alt="【4件】HiPP 德国喜宝有机天然苹果味磨牙米饼 海外本土原版">
             </a>
           </p>
           <p class="jiaobiao3">
@@ -44,7 +44,9 @@
 export default {
   name:"wear-render",
   data () {
-    return {}
+    return {
+      test:[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
+    }
   }
 }
 </script>

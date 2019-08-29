@@ -6,13 +6,13 @@
     <div class="item2">
       <table>
         <tr>
-          <td>
+          <td v-for="item in test">
             <div class="content">
               <div class="ny2015_germany_body1">
                 <div class="goods">
                   <p class="goods_img">
                     <a href="http://m.guojimami.com/goods-14711-t858.htm" class="good_img">
-                      <img src="http://m.guojimami.com/images/201811/thumb_img/14711_thumb_G_1541543137297.jpg" alt="Mellin 意大利美林三文鱼蔬菜泥2x80g/组 海外本土原版"/>
+                      <img v-lazy="'http://m.guojimami.com/images/201811/thumb_img/14711_thumb_G_1541543137297.jpg'" alt="Mellin 意大利美林三文鱼蔬菜泥2x80g/组 海外本土原版"/>
                     </a>
                   </p>
                   <p class="jiesheng">已团6370件</p>
@@ -44,7 +44,18 @@
 export default {
   name:"selected-render",
   data () {
-    return {}
+    return {
+      test:[]
+    }
+  },
+  mounted: function(){
+    let self = this;
+    this.$http.get('http://localhost/mamix/api/activity/test.php').then(function(response){
+      console.log(response.data)
+      if(response.data.result){
+        self.test = response.data;
+      }
+    });
   }
 }
 </script>

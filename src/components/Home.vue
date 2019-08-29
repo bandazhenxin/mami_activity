@@ -93,26 +93,83 @@
 
 <script>
   import helper from '@/helper/basicHelper.js'
-  import CountDown from '@/components/base/CountDown'
-  import WelfareRender from '@/components/base/welfare-render'
-  import HallRender from '@/components/base/hall-render'
-  import HotHallRender from '@/components/base/hot-hall-render'
-  import AssembleRender from '@/components/base/assemble-render'
-  import SelectedRender from '@/components/base/selected-render'
-  import ExquisiteForeignRender from '@/components/base/exquisite-foreign-render'
-  import OverseasMilkRender from '@/components/base/overseas-milk-render'
-  import BabyNutritionRender  from '@/components/base/baby-nutrition-render'
-  import RiceNoodlesRender from '@/components/base/rice-noodles-render'
-  import DiaperRender from '@/components/base/diaper-render'
-  import WashCareRender from '@/components/base/wash-care-render'
-  import FeedingBottleRender from '@/components/base/feeding-bottle-render'
-  import WearRender from '@/components/base/wear-render'
-  import MakeupRender from '@/components/base/makeup-render'
-  import MotherUseRender from '@/components/base/mother-use-render'
-  import NutritionRender from '@/components/base/nutrition-render'
-  import LifeRender from '@/components/base/life-render'
-  import MoreHallRender from '@/components/base/more-hall-render'
-  import TalentNotes from '@/components/base/talent-notes'
+  // import CountDown from '@/components/base/CountDown'
+  // import WelfareRender from '@/components/base/welfare-render'
+  // import HallRender from '@/components/base/hall-render'
+  // import HotHallRender from '@/components/base/hot-hall-render'
+  // import AssembleRender from '@/components/base/assemble-render'
+  // import SelectedRender from '@/components/base/selected-render'
+  // import ExquisiteForeignRender from '@/components/base/exquisite-foreign-render'
+  // import OverseasMilkRender from '@/components/base/overseas-milk-render'
+  // import BabyNutritionRender  from '@/components/base/baby-nutrition-render'
+  // import RiceNoodlesRender from '@/components/base/rice-noodles-render'
+  // import DiaperRender from '@/components/base/diaper-render'
+  // import WashCareRender from '@/components/base/wash-care-render'
+  // import FeedingBottleRender from '@/components/base/feeding-bottle-render'
+  // import WearRender from '@/components/base/wear-render'
+  // import MakeupRender from '@/components/base/makeup-render'
+  // import MotherUseRender from '@/components/base/mother-use-render'
+  // import NutritionRender from '@/components/base/nutrition-render'
+  // import LifeRender from '@/components/base/life-render'
+  // import MoreHallRender from '@/components/base/more-hall-render'
+  // import TalentNotes from '@/components/base/talent-notes'
+
+  const CountDown = resolve => require(['@/components/base/CountDown'], resolve);
+  const WelfareRender = resolve => require(['@/components/base/welfare-render'], resolve);
+  const HallRender = resolve => require(['@/components/base/hall-render'], resolve);
+  const HotHallRender = resolve => require(['@/components/base/hot-hall-render'], resolve);
+  const AssembleRender = resolve => require(['@/components/base/assemble-render'], resolve);
+  const SelectedRender = resolve => require(['@/components/base/selected-render'], resolve);
+  const ExquisiteForeignRender = resolve => require(['@/components/base/exquisite-foreign-render'], resolve);
+  const OverseasMilkRender = resolve => require(['@/components/base/overseas-milk-render'], resolve);
+  const BabyNutritionRender = resolve => require(['@/components/base/baby-nutrition-render'], resolve);
+  const RiceNoodlesRender = resolve => require(['@/components/base/rice-noodles-render'], resolve);
+  const DiaperRender = resolve => require(['@/components/base/diaper-render'], resolve);
+  const WashCareRender = resolve => require(['@/components/base/wash-care-render'], resolve);
+  const FeedingBottleRender = resolve => require(['@/components/base/feeding-bottle-render'], resolve);
+  const WearRender = resolve => require(['@/components/base/wear-render'], resolve);
+  const MakeupRender = resolve => require(['@/components/base/makeup-render'], resolve);
+  const MotherUseRender = resolve => require(['@/components/base/mother-use-render'], resolve);
+  const NutritionRender = resolve => require(['@/components/base/nutrition-render'], resolve);
+  const LifeRender = resolve => require(['@/components/base/life-render'], resolve);
+  const MoreHallRender = resolve => require(['@/components/base/more-hall-render'], resolve);
+  const TalentNotes = resolve => require(['@/components/base/talent-notes'], resolve);
+
+  // const CountDown = () => import('@/components/base/CountDown');
+  // const WelfareRender = () => import('@/components/base/welfare-render');
+  // const HallRender = () => import('@/components/base/hall-render');
+  // const HotHallRender = () => import('@/components/base/hot-hall-render');
+  // const AssembleRender = () => import('@/components/base/assemble-render');
+  // const SelectedRender = () => import('@/components/base/selected-render');
+  // const ExquisiteForeignRender = () => import('@/components/base/exquisite-foreign-render');
+  // const OverseasMilkRender = () => import('@/components/base/overseas-milk-render');
+  // const BabyNutritionRender = () => import('@/components/base/baby-nutrition-render');
+  // const RiceNoodlesRender = () => import('@/components/base/rice-noodles-render');
+  // const DiaperRender = () => import('@/components/base/diaper-render');
+  // const WashCareRender = () => import('@/components/base/wash-care-render');
+  // const FeedingBottleRender = () => import('@/components/base/feeding-bottle-render');
+  // const WearRender = () => import('@/components/base/wear-render');
+  // const MakeupRender = () => import('@/components/base/makeup-render');
+  // const MotherUseRender = () => import('@/components/base/mother-use-render');
+  // const NutritionRender = () => import('@/components/base/nutrition-render');
+  // const LifeRender = () => import('@/components/base/life-render');
+  // const MoreHallRender = () => import('@/components/base/more-hall-render');
+  // const TalentNotes = () => import('@/components/base/talent-notes');
+
+  // <?php
+  // define('IN_ECS', true);
+  // header('Access-Control-Allow-Origin:*');
+  // header('Access-Control-Allow-  Methods: GET, POST, PUT,DELETE,OPTIONS,PATCH');
+  // header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept, Authorization");
+  //
+  // //reply
+  // require('../init.php');
+  // require_once(ROOT_PATH . 'includes/cls_json.php');
+  // require_once(ROOT_PATH . 'includes/cls_jwt.php');
+  //
+  // $json = new JSON;
+  // $results = array('result'=>true, 'data'=>array(1,1,1,1,1,1,1));
+  // exit($json->encode($results));
 
   var preTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
 
