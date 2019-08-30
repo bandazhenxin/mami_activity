@@ -1,21 +1,37 @@
 <template>
   <div class='hall-render'>
-    <div class="item1"><img src="@/assets/liangfan0826_09.jpg" alt="会场精选" /></div>
+    <div class="item1"><img v-lazy="require('@/assets/liangfan0826_09.jpg')" alt="会场精选" /></div>
     <div class="item2" >
-      <a href="http://m.guojimami.com/savemoney.php"><img src="@/assets/liangfan0826_10.jpg" alt="" /></a>
-      <a href="foodsale.php"><img src="@/assets/liangfan0826_11.jpg" alt="" /></a>
+      <a href="http://m.guojimami.com/savemoney.php">
+        <img v-lazy="require('@/assets/liangfan0826_10.jpg')" alt="" />
+      </a>
+      <a href="foodsale.php">
+        <img v-lazy="require('@/assets/liangfan0826_11.jpg')" alt="" />
+      </a>
     </div>
     <div class="item2" >
-      <a href="http://m.guojimami.com/savemoney.php"><img src="@/assets/liangfan0826_12.jpg" alt="" /></a>
-      <a href="http://m.guojimami.com/babysupplies.php"><img src="@/assets/liangfan0826_13.jpg" alt="" /></a>
+      <a href="http://m.guojimami.com/savemoney.php">
+        <img v-lazy="require('@/assets/liangfan0826_12.jpg')" alt="" />
+      </a>
+      <a href="http://m.guojimami.com/babysupplies.php">
+        <img v-lazy="require('@/assets/liangfan0826_13.jpg')" alt="" />
+      </a>
     </div>
     <div class="item2" >
-      <a href="http://m.guojimami.com/momhealth.php"><img src="@/assets/liangfan0826_14.jpg" alt="" /></a>
-      <a href="http://m.guojimami.com/2019summer.php"><img src="@/assets/liangfan0826_15.jpg" alt="" /></a>
+      <a href="http://m.guojimami.com/momhealth.php">
+        <img v-lazy="require('@/assets/liangfan0826_14.jpg')" alt="" />
+      </a>
+      <a href="http://m.guojimami.com/2019summer.php">
+        <img v-lazy="require('@/assets/liangfan0826_15.jpg')" alt="" />
+      </a>
     </div>
     <div class="item2" >
-      <a href="http://m.guojimami.com/makeup.php"><img src="@/assets/liangfan0826_16.jpg" alt="" /></a>
-      <a href="http://m.guojimami.com/2019summer.php"><img src="@/assets/liangfan0826_17.jpg" alt="" /></a>
+      <a href="http://m.guojimami.com/makeup.php">
+        <img v-lazy="require('@/assets/liangfan0826_16.jpg')" alt="" />
+      </a>
+      <a href="http://m.guojimami.com/2019summer.php">
+        <img v-lazy="require('@/assets/liangfan0826_17.jpg')" alt="" />
+      </a>
     </div>
   </div>
 </template>

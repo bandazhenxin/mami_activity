@@ -1,9 +1,13 @@
 <template>
   <div class='hot-hall-render'>
-    <div class="item1"><img src="@/assets/liangfan0826_18.jpg" alt="会场精选" /></div>
+    <div class="item1"><img v-lazy="require('@/assets/liangfan0826_18.jpg')" alt="会场精选" /></div>
     <div class="item2">
-      <a href="http://m.guojimami.com/freetrade.php"><img src="@/assets/liangfan0826_19.jpg" alt="" /></a>
-      <a href="http://m.guojimami.com/nature.php"><img src="@/assets/liangfan0826_20.jpg" alt="" /></a>
+      <a href="http://m.guojimami.com/freetrade.php">
+        <img v-lazy="require('@/assets/liangfan0826_19.jpg')" alt="" />
+      </a>
+      <a href="http://m.guojimami.com/nature.php">
+        <img v-lazy="require('@/assets/liangfan0826_20.jpg')" alt="" />
+      </a>
     </div>
   </div>
 </template>

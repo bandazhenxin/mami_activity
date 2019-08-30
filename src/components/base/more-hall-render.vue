@@ -1,20 +1,62 @@
 <template>
   <div class='more-hall-render'>
-    <div class="item1"><img src="@/assets/liangfan0826_36.jpg" alt="会场精选" /></div>
+    <div class="item1">
+      <img v-lazy="require('@/assets/liangfan0826_36.jpg')" alt="会场精选" />
+    </div>
     <div class="item2">
       <table>
         <tbody>
           <tr>
-            <td><div class="pinpai2"><a href="http://m.guojimami.com/newborn.php"><img src="@/assets/liangfan0826_37.jpg" alt=""></a></div></td>
-            <td><div class="pinpai2"><a href="http://m.guojimami.com/ricesale.php"><img src="@/assets/liangfan0826_38.jpg" alt=""></a></div></td>
-            <td><div class="pinpai2"><a href="http://m.guojimami.com/oralcare.php"><img src="@/assets/liangfan0826_39.jpg" alt=""></a></div></td>
-            <td><div class="pinpai2"><a href="http://m.guojimami.com/mask.php"><img src="@/assets/liangfan0826_40.jpg" alt=""></a></div></td>
-            <td><div class="pinpai2"><a href="http://m.guojimami.com/hairdressing.php"><img src="@/assets/liangfan0826_41.jpg" alt=""></a></div></td>
-            <td><div class="pinpai2"><a href="http://m.guojimami.com/mancare.php"><img src="@/assets/liangfan0826_42.jpg" alt=""></a></div></td>
-            <td><div class="pinpai2"><a href="http://m.guojimami.com/slimming.php"><img src="@/assets/liangfan0826_43.jpg" alt=""></a></div></td>
-            <td><div class="pinpai2"><a href="http://m.guojimami.com/malehealth.php"><img src="@/assets/liangfan0826_44.jpg" alt=""></a></div></td>
-            <td><div class="pinpai2"><a href="http://m.guojimami.com/cate.php"><img src="@/assets/liangfan0826_45.jpg" alt=""></a></div></td>
-            <td><div class="pinpai2"><a href="http://m.guojimami.com/watches.php"><img src="@/assets/liangfan0826_46.jpg" alt=""></a></div></td>
+            <td><div class="pinpai2">
+              <a href="http://m.guojimami.com/newborn.php">
+                <img v-lazy="require('@/assets/liangfan0826_37.jpg')" alt="">
+              </a>
+            </div></td>
+            <td><div class="pinpai2">
+              <a href="http://m.guojimami.com/ricesale.php">
+                <img v-lazy="require('@/assets/liangfan0826_38.jpg')" alt="">
+              </a>
+            </div></td>
+            <td><div class="pinpai2">
+              <a href="http://m.guojimami.com/ricesale.php">
+                <img v-lazy="require('@/assets/liangfan0826_39.jpg')" alt="">
+              </a>
+            </div></td>
+            <td><div class="pinpai2">
+              <a href="http://m.guojimami.com/ricesale.php">
+                <img v-lazy="require('@/assets/liangfan0826_40.jpg')" alt="">
+              </a>
+            </div></td>
+            <td><div class="pinpai2">
+              <a href="http://m.guojimami.com/ricesale.php">
+                <img v-lazy="require('@/assets/liangfan0826_41.jpg')" alt="">
+              </a>
+            </div></td>
+            <td><div class="pinpai2">
+              <a href="http://m.guojimami.com/ricesale.php">
+                <img v-lazy="require('@/assets/liangfan0826_42.jpg')" alt="">
+              </a>
+            </div></td>
+            <td><div class="pinpai2">
+              <a href="http://m.guojimami.com/ricesale.php">
+                <img v-lazy="require('@/assets/liangfan0826_43.jpg')" alt="">
+              </a>
+            </div></td>
+            <td><div class="pinpai2">
+              <a href="http://m.guojimami.com/ricesale.php">
+                <img v-lazy="require('@/assets/liangfan0826_44.jpg')" alt="">
+              </a>
+            </div></td>
+            <td><div class="pinpai2">
+              <a href="http://m.guojimami.com/ricesale.php">
+                <img v-lazy="require('@/assets/liangfan0826_45.jpg')" alt="">
+              </a>
+            </div></td>
+            <td><div class="pinpai2">
+              <a href="http://m.guojimami.com/ricesale.php">
+                <img v-lazy="require('@/assets/liangfan0826_46.jpg')" alt="">
+              </a>
+            </div></td>
           </tr>
         </tbody>
       </table>
@@ -50,7 +92,7 @@ export default {
     overflow: auto;
     padding-bottom: 15px;
     -webkit-overflow-scrolling: touch;
-    
+
     img{
       height: 125px;
       margin-left: 2px;

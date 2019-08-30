@@ -1,10 +1,14 @@
 <template>
   <div class="wear-render basic-render">
     <div class="item1">
-      <a href="http://m.guojimami.com/2019summer.php"><img src="@/assets/liangfan0826_30.jpg"  alt="拼团"/></a>
+      <a href="http://m.guojimami.com/2019summer.php">
+        <img v-lazy="require('@/assets/liangfan0826_30.jpg')"  alt="拼团"/>
+      </a>
     </div>
     <div class="item1">
-      <a href="http://m.guojimami.com/2019summer.php"><img src="@/assets/liangfan0826_31.jpg"  alt="拼团"/></a>
+      <a href="http://m.guojimami.com/2019summer.php">
+        <img v-lazy="require('@/assets/liangfan0826_31.jpg')"  alt="拼团"/>
+      </a>
     </div>
     <div class="content">
       <div class="ny2015_germany_body4" v-for="item in test">
@@ -15,7 +19,7 @@
             </a>
           </p>
           <p class="jiaobiao3">
-            <img src="@/assets/liangfan0826_jiaobiao.png">
+            <img v-lazy="require('@/assets/liangfan0826_jiaobiao.png')">
           </p>
           <p class="zhuanxiang">德国本土原版</p>
           <p class="zhuanxiang1">德国原产直发</p>
@@ -30,12 +34,18 @@
             <span style="font-family:'PingFang SC Regular'; font-size:12px;">/件</span>
             <span class="market_price" style="margin-left:1%;">22</span>
           </div>
-    			<div class="buy"><a href="http://m.guojimami.com/goods-23405-t2160.htm"><img src="@/assets/buy1218.png"></a></div>
+    			<div class="buy">
+            <a href="http://m.guojimami.com/goods-23405-t2160.htm">
+              <img v-lazy="require('@/assets/buy1218.png')">
+            </a>
+          </div>
         </div>
       </div>
     </div>
     <div class="item1">
-      <a href="http://m.guojimami.com/Supersale.php"><img src="@/assets/liangfan0826_more.jpg" alt="更多"></a>
+      <a href="http://m.guojimami.com/Supersale.php">
+        <img v-lazy="require('@/assets/liangfan0826_more.jpg')" alt="更多">
+      </a>
     </div>
   </div>
 </template>

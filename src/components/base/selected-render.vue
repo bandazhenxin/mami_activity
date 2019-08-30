@@ -1,7 +1,9 @@
 <template>
   <div class='selected-render'>
     <div class="item1">
-      <a href="http://m.guojimami.com/SuperSales.php"><img src="@/assets/liangfan0826_21.jpg"  alt="拼团"/></a>
+      <a href="http://m.guojimami.com/SuperSales.php">
+        <img v-lazy="require('@/assets/liangfan0826_21.jpg')"  alt="拼团"/>
+      </a>
     </div>
     <div class="item2">
       <table>

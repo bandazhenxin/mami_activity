@@ -2,7 +2,7 @@
   <div class='index'>
     <!-- banner图 -->
     <div class='banner' ref='banner'>
-      <img v-for="banner in bannerList" v-lazy="banner.img" alt="" />
+      <img v-for="banner in bannerList" :src="banner.img" alt="" />
     </div>
 
     <!-- nav -->
@@ -83,7 +83,9 @@
 
     <div class='basic-render'>
       <div class="item1">
-        <a href="http://m.guojimami.com/clearance.php"><img src="@/assets/queen38sj_88.jpg" alt=""></a>
+        <a href="http://m.guojimami.com/clearance.php">
+          <img v-lazy="require('@/assets/queen38sj_88.jpg')" alt="">
+        </a>
       </div>
     </div>
 
@@ -116,24 +118,96 @@
 
   const CountDown = resolve => require(['@/components/base/CountDown'], resolve);
   const WelfareRender = resolve => require(['@/components/base/welfare-render'], resolve);
-  const HallRender = resolve => require(['@/components/base/hall-render'], resolve);
-  const HotHallRender = resolve => require(['@/components/base/hot-hall-render'], resolve);
-  const AssembleRender = resolve => require(['@/components/base/assemble-render'], resolve);
-  const SelectedRender = resolve => require(['@/components/base/selected-render'], resolve);
-  const ExquisiteForeignRender = resolve => require(['@/components/base/exquisite-foreign-render'], resolve);
-  const OverseasMilkRender = resolve => require(['@/components/base/overseas-milk-render'], resolve);
-  const BabyNutritionRender = resolve => require(['@/components/base/baby-nutrition-render'], resolve);
-  const RiceNoodlesRender = resolve => require(['@/components/base/rice-noodles-render'], resolve);
-  const DiaperRender = resolve => require(['@/components/base/diaper-render'], resolve);
-  const WashCareRender = resolve => require(['@/components/base/wash-care-render'], resolve);
-  const FeedingBottleRender = resolve => require(['@/components/base/feeding-bottle-render'], resolve);
-  const WearRender = resolve => require(['@/components/base/wear-render'], resolve);
-  const MakeupRender = resolve => require(['@/components/base/makeup-render'], resolve);
-  const MotherUseRender = resolve => require(['@/components/base/mother-use-render'], resolve);
-  const NutritionRender = resolve => require(['@/components/base/nutrition-render'], resolve);
-  const LifeRender = resolve => require(['@/components/base/life-render'], resolve);
-  const MoreHallRender = resolve => require(['@/components/base/more-hall-render'], resolve);
-  const TalentNotes = resolve => require(['@/components/base/talent-notes'], resolve);
+  const HallRender = resolve => {
+    setTimeout(function () {
+      require(['@/components/base/hall-render'], resolve);
+    },50);
+  }
+  const HotHallRender = resolve => {
+    setTimeout(function () {
+      require(['@/components/base/hot-hall-render'], resolve);
+    },100);
+  }
+  const AssembleRender = resolve => {
+    setTimeout(function () {
+      require(['@/components/base/assemble-render'], resolve);
+    },150);
+  }
+  const SelectedRender = resolve => {
+    setTimeout(function () {
+      require(['@/components/base/selected-render'], resolve);
+    },200);
+  }
+  const ExquisiteForeignRender = resolve => {
+    setTimeout(function () {
+      require(['@/components/base/exquisite-foreign-render'], resolve);
+    },250);
+  }
+  const OverseasMilkRender = resolve => {
+    setTimeout(function () {
+      require(['@/components/base/overseas-milk-render'], resolve);
+    },300);
+  }
+  const BabyNutritionRender = resolve => {
+    setTimeout(function () {
+      require(['@/components/base/baby-nutrition-render'], resolve);
+    },350);
+  }
+  const RiceNoodlesRender = resolve => {
+    setTimeout(function () {
+      require(['@/components/base/rice-noodles-render'], resolve);
+    },400);
+  }
+  const DiaperRender = resolve => {
+    setTimeout(function () {
+      require(['@/components/base/diaper-render'], resolve);
+    },450);
+  }
+  const WashCareRender = resolve => {
+    setTimeout(function () {
+      require(['@/components/base/wash-care-render'], resolve);
+    },500);
+  }
+  const FeedingBottleRender = resolve => {
+    setTimeout(function () {
+      require(['@/components/base/feeding-bottle-render'], resolve);
+    },550);
+  }
+  const WearRender = resolve => {
+    setTimeout(function () {
+      require(['@/components/base/wear-render'], resolve);
+    },600);
+  }
+  const MakeupRender = resolve => {
+    setTimeout(function () {
+      require(['@/components/base/makeup-render'], resolve);
+    },650);
+  }
+  const MotherUseRender = resolve => {
+    setTimeout(function () {
+      require(['@/components/base/mother-use-render'], resolve);
+    },700);
+  }
+  const NutritionRender = resolve => {
+    setTimeout(function () {
+      require(['@/components/base/nutrition-render'], resolve);
+    },750);
+  }
+  const LifeRender = resolve => {
+    setTimeout(function () {
+      require(['@/components/base/life-render'], resolve);
+    },800);
+  }
+  const MoreHallRender = resolve => {
+    setTimeout(function () {
+      require(['@/components/base/more-hall-render'], resolve);
+    },850);
+  }
+  const TalentNotes = resolve => {
+    setTimeout(function () {
+      require(['@/components/base/talent-notes'], resolve);
+    },900);
+  }
 
   // const CountDown = () => import('@/components/base/CountDown');
   // const WelfareRender = () => import('@/components/base/welfare-render');
@@ -357,6 +431,13 @@
   body, div, p, img {
       margin: 0px;
       padding: 0px;
+  }
+
+  img[lazy="loading"]{
+    display:block;
+    width:50px !important;
+    height:50px !important;
+    margin:0 auto;
   }
 
   .navBarWrap {

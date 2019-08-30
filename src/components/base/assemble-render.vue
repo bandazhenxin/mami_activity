@@ -1,7 +1,9 @@
 <template>
   <div class='assemble-render'>
     <div class="item1">
-      <a href="http://m.guojimami.com/grouping.php"><img src="@/assets/liangfan0826_22.jpg"  alt="拼团"/></a>
+      <a href="http://m.guojimami.com/grouping.php">
+        <img v-lazy="require('@/assets/liangfan0826_22.jpg')"  alt="拼团"/>
+      </a>
     </div>
     <div class="item2">
       <table>
@@ -12,7 +14,7 @@
                 <div class="goods">
                   <p class="goods_img">
                     <a href="http://m.guojimami.com/group_goods.php?act=view&id=3445&act_id=3595" class="good_img">
-                      <img src="http://m.guojimami.com/images/201904/goods_img/3445_G_1555270155054.jpg" alt="Mellin 意大利美林三文鱼蔬菜泥2x80g/组 海外本土原版"/>
+                      <img v-lazy="'http://m.guojimami.com/images/201904/goods_img/3445_G_1555270155054.jpg'" alt="Mellin 意大利美林三文鱼蔬菜泥2x80g/组 海外本土原版"/>
                     </a>
                   </p>
                   <p class="jiesheng">已团6370件</p>
@@ -41,7 +43,7 @@
                 <div class="goods">
                   <p class="goods_img">
                     <a href="http://m.guojimami.com/group_goods.php?act=view&id=3445&act_id=3595" class="good_img">
-                      <img src="http://m.guojimami.com/images/201904/goods_img/3445_G_1555270155054.jpg" alt="Mellin 意大利美林三文鱼蔬菜泥2x80g/组 海外本土原版"/>
+                      <img v-lazy="'http://m.guojimami.com/images/201904/goods_img/3445_G_1555270155054.jpg'" alt="Mellin 意大利美林三文鱼蔬菜泥2x80g/组 海外本土原版"/>
                     </a>
                   </p>
                   <p class="jiesheng">已团6370件</p>
@@ -70,7 +72,36 @@
                 <div class="goods">
                   <p class="goods_img">
                     <a href="http://m.guojimami.com/group_goods.php?act=view&id=3445&act_id=3595" class="good_img">
-                      <img src="http://m.guojimami.com/images/201904/goods_img/3445_G_1555270155054.jpg" alt="Mellin 意大利美林三文鱼蔬菜泥2x80g/组 海外本土原版"/>
+                      <img v-lazy="'http://m.guojimami.com/images/201904/goods_img/3445_G_1555270155054.jpg'" alt="Mellin 意大利美林三文鱼蔬菜泥2x80g/组 海外本土原版"/>
+                    </a>
+                  </p>
+                  <p class="jiesheng">已团6370件</p>
+                  <p style="display:block; width:130px; margin-left:4%; margin-top:15px; text-align:left; font-family:'PingFang SC Regular'; font-size:12px; color:#000; word-break:keep-all;  white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+                    <a v-lazy="'http://m.guojimami.com/group_goods.php?act=view&id=3445&act_id=3595'" style="color:#000;" >Mellin 意大利美林三文鱼蔬菜泥2x80g/组 海外本土原版</a>
+                  </p>
+                  <div class="clear"></div>
+                  <div class="price">
+                    <span class="fh">&yen;</span>
+                    <span class="shop_price2">36</span>
+                    <span class="fh1">&yen;</span>
+                    <span class="shop_price1"><del>59</del></span>
+                  </div>
+                  <div class="buy">
+                    <a v-lazy="'http://m.guojimami.com/group_goods.php?act=view&id=3445&act_id=3595'" style="color:#fff;" >去拼团</a>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+              </div>
+            </div>
+          </td>
+        
+          <td>
+            <div class="content">
+              <div class="ny2015_germany_body1">
+                <div class="goods">
+                  <p class="goods_img">
+                    <a href="http://m.guojimami.com/group_goods.php?act=view&id=3445&act_id=3595" class="good_img">
+                      <img v-lazy="'http://m.guojimami.com/images/201904/goods_img/3445_G_1555270155054.jpg'" alt="Mellin 意大利美林三文鱼蔬菜泥2x80g/组 海外本土原版"/>
                     </a>
                   </p>
                   <p class="jiesheng">已团6370件</p>
@@ -99,36 +130,7 @@
                 <div class="goods">
                   <p class="goods_img">
                     <a href="http://m.guojimami.com/group_goods.php?act=view&id=3445&act_id=3595" class="good_img">
-                      <img src="http://m.guojimami.com/images/201904/goods_img/3445_G_1555270155054.jpg" alt="Mellin 意大利美林三文鱼蔬菜泥2x80g/组 海外本土原版"/>
-                    </a>
-                  </p>
-                  <p class="jiesheng">已团6370件</p>
-                  <p style="display:block; width:130px; margin-left:4%; margin-top:15px; text-align:left; font-family:'PingFang SC Regular'; font-size:12px; color:#000; word-break:keep-all;  white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
-                    <a href="http://m.guojimami.com/group_goods.php?act=view&id=3445&act_id=3595" style="color:#000;" >Mellin 意大利美林三文鱼蔬菜泥2x80g/组 海外本土原版</a>
-                  </p>
-                  <div class="clear"></div>
-                  <div class="price">
-                    <span class="fh">&yen;</span>
-                    <span class="shop_price2">36</span>
-                    <span class="fh1">&yen;</span>
-                    <span class="shop_price1"><del>59</del></span>
-                  </div>
-                  <div class="buy">
-                    <a href="http://m.guojimami.com/group_goods.php?act=view&id=3445&act_id=3595" style="color:#fff;" >去拼团</a>
-                  </div>
-                  <div class="clear"></div>
-                </div>
-              </div>
-            </div>
-          </td>
-        
-          <td>
-            <div class="content">
-              <div class="ny2015_germany_body1">
-                <div class="goods">
-                  <p class="goods_img">
-                    <a href="http://m.guojimami.com/group_goods.php?act=view&id=3445&act_id=3595" class="good_img">
-                      <img src="http://m.guojimami.com/images/201904/goods_img/3445_G_1555270155054.jpg" alt="Mellin 意大利美林三文鱼蔬菜泥2x80g/组 海外本土原版"/>
+                      <img v-lazy="'http://m.guojimami.com/images/201904/goods_img/3445_G_1555270155054.jpg'" alt="Mellin 意大利美林三文鱼蔬菜泥2x80g/组 海外本土原版"/>
                     </a>
                   </p>
                   <p class="jiesheng">已团6370件</p>

@@ -1,7 +1,9 @@
 <template>
   <div class="overseas-milk-render basic-render">
     <div class="item1">
-      <a href="http://m.guojimami.com/Supersale.php"><img src="@/assets/liangfan0826_24.jpg"  alt="拼团"/></a>
+      <a href="http://m.guojimami.com/Supersale.php">
+        <img v-lazy="require('@/assets/liangfan0826_24.jpg')"  alt="拼团"/>
+      </a>
     </div>
     <div class="content">
       <div class="ny2015_germany_body4" v-for="item in test">
@@ -12,7 +14,7 @@
             </a>
           </p>
           <p class="jiaobiao3">
-            <img src="@/assets/liangfan0826_jiaobiao.png">
+            <img v-lazy="require('@/assets/liangfan0826_jiaobiao.png')">
           </p>
           <p class="zhuanxiang">德国本土原版</p>
           <p class="zhuanxiang1">德国原产直发</p>
@@ -32,7 +34,9 @@
       </div>
     </div>
     <div class="item1">
-      <a href="http://m.guojimami.com/Supersale.php"><img src="@/assets/liangfan0826_more.jpg" alt="更多"></a>
+      <a href="http://m.guojimami.com/Supersale.php">
+        <img v-lazy="require('@/assets/liangfan0826_more.jpg')" alt="更多">
+      </a>
     </div>
   </div>
 </template>
