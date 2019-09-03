@@ -2,7 +2,7 @@
   <div class='index'>
     <!-- banner图 -->
     <div class='banner' ref='banner'>
-      <img v-for="banner in bannerList" :src="banner.img" alt="" />
+      <img v-for="banner in bannerList" v-lazy="banner" alt="" />
     </div>
 
     <!-- nav -->
@@ -26,351 +26,107 @@
     </div>
 
     <!-- render -->
-    <div id="display1" ref="display1" class='basic-background'>
-      <CountDown :gap="gap"></CountDown>
-      <welfare-render></welfare-render>
+    <CountDown :gap="gap"></CountDown>
+    <div
+      v-for="item in navData"
+      :id="'display' + item.index"
+      :ref="'display' + item.index"
+      :style="{background: home_background}"
+    >
+      <component :content="item.content" :route="item.route" :is="item.template"></component>
     </div>
-    <div id="display2" ref="display2" class='basic-background'>
-      <hall-render></hall-render>
-      <hot-hall-render></hot-hall-render>
-    </div>
-    <div id="display3" ref="display3" class='basic-background'>
-      <assemble-render></assemble-render>
-    </div>
-    <div id="display4" ref="display4" class='basic-background'>
-      <selected-render></selected-render>
-    </div>
-    <div id="display5" ref="display5" class='basic-background'>
-      <exquisite-foreign-render></exquisite-foreign-render>
-    </div>
-
-    <div id="display6" ref="display6" class='basic-background'>
-      <overseas-milk-render></overseas-milk-render>
-    </div>
-    <div id="display7" ref="display7" class='basic-background'>
-      <baby-nutrition-render></baby-nutrition-render>
-    </div>
-    <div id="display8" ref="display8" class='basic-background'>
-      <rice-noodles-render></rice-noodles-render>
-    </div>
-    <div id="display9" ref="display9" class='basic-background'>
-      <diaper-render></diaper-render>
-    </div>
-    <div id="display10" ref="display10" class='basic-background'>
-      <wash-care-render></wash-care-render>
-    </div>
-    <div id="display11" ref="display11" class='basic-background'>
-      <feeding-bottle-render></feeding-bottle-render>
-    </div>
-    <div id="display12" ref="display12" class='basic-background'>
-      <wear-render></wear-render>
-    </div>
-    <div id="display13" ref="display13" class='basic-background'>
-      <makeup-render></makeup-render>
-    </div>
-    <div id="display14" ref="display14" class='basic-background'>
-      <mother-use-render></mother-use-render>
-    </div>
-    <div id="display15" ref="display15" class='basic-background'>
-      <nutrition-render></nutrition-render>
-    </div>
-    <div id="display16" ref="display16" class='basic-background'>
-      <life-render></life-render>
-    </div>
-    <div id="display17" ref="display17" class='basic-background'>
-      <more-hall-render></more-hall-render>
-    </div>
-
-    <div class='basic-render'>
-      <div class="item1">
-        <a href="http://m.guojimami.com/clearance.php">
-          <img v-lazy="require('@/assets/queen38sj_88.jpg')" alt="">
-        </a>
-      </div>
-    </div>
-
-    <talent-notes></talent-notes>
   </div>
 </template>
 
 <script>
+  import Vue from 'vue'
   import helper from '@/helper/basicHelper.js'
-  // import CountDown from '@/components/base/CountDown'
-  // import WelfareRender from '@/components/base/welfare-render'
-  // import HallRender from '@/components/base/hall-render'
-  // import HotHallRender from '@/components/base/hot-hall-render'
-  // import AssembleRender from '@/components/base/assemble-render'
-  // import SelectedRender from '@/components/base/selected-render'
-  // import ExquisiteForeignRender from '@/components/base/exquisite-foreign-render'
-  // import OverseasMilkRender from '@/components/base/overseas-milk-render'
-  // import BabyNutritionRender  from '@/components/base/baby-nutrition-render'
-  // import RiceNoodlesRender from '@/components/base/rice-noodles-render'
-  // import DiaperRender from '@/components/base/diaper-render'
-  // import WashCareRender from '@/components/base/wash-care-render'
-  // import FeedingBottleRender from '@/components/base/feeding-bottle-render'
-  // import WearRender from '@/components/base/wear-render'
-  // import MakeupRender from '@/components/base/makeup-render'
-  // import MotherUseRender from '@/components/base/mother-use-render'
-  // import NutritionRender from '@/components/base/nutrition-render'
-  // import LifeRender from '@/components/base/life-render'
-  // import MoreHallRender from '@/components/base/more-hall-render'
-  // import TalentNotes from '@/components/base/talent-notes'
+  import request from '@/config/request.js'
+  import lang from '@/config/lang.js'
 
-  const CountDown = resolve => require(['@/components/base/CountDown'], resolve);
-  const WelfareRender = resolve => require(['@/components/base/welfare-render'], resolve);
-  const HallRender = resolve => {
-    setTimeout(function () {
-      require(['@/components/base/hall-render'], resolve);
-    },50);
-  }
-  const HotHallRender = resolve => {
-    setTimeout(function () {
-      require(['@/components/base/hot-hall-render'], resolve);
-    },100);
-  }
-  const AssembleRender = resolve => {
-    setTimeout(function () {
-      require(['@/components/base/assemble-render'], resolve);
-    },150);
-  }
-  const SelectedRender = resolve => {
-    setTimeout(function () {
-      require(['@/components/base/selected-render'], resolve);
-    },200);
-  }
-  const ExquisiteForeignRender = resolve => {
-    setTimeout(function () {
-      require(['@/components/base/exquisite-foreign-render'], resolve);
-    },250);
-  }
-  const OverseasMilkRender = resolve => {
-    setTimeout(function () {
-      require(['@/components/base/overseas-milk-render'], resolve);
-    },300);
-  }
-  const BabyNutritionRender = resolve => {
-    setTimeout(function () {
-      require(['@/components/base/baby-nutrition-render'], resolve);
-    },350);
-  }
-  const RiceNoodlesRender = resolve => {
-    setTimeout(function () {
-      require(['@/components/base/rice-noodles-render'], resolve);
-    },400);
-  }
-  const DiaperRender = resolve => {
-    setTimeout(function () {
-      require(['@/components/base/diaper-render'], resolve);
-    },450);
-  }
-  const WashCareRender = resolve => {
-    setTimeout(function () {
-      require(['@/components/base/wash-care-render'], resolve);
-    },500);
-  }
-  const FeedingBottleRender = resolve => {
-    setTimeout(function () {
-      require(['@/components/base/feeding-bottle-render'], resolve);
-    },550);
-  }
-  const WearRender = resolve => {
-    setTimeout(function () {
-      require(['@/components/base/wear-render'], resolve);
-    },600);
-  }
-  const MakeupRender = resolve => {
-    setTimeout(function () {
-      require(['@/components/base/makeup-render'], resolve);
-    },650);
-  }
-  const MotherUseRender = resolve => {
-    setTimeout(function () {
-      require(['@/components/base/mother-use-render'], resolve);
-    },700);
-  }
-  const NutritionRender = resolve => {
-    setTimeout(function () {
-      require(['@/components/base/nutrition-render'], resolve);
-    },750);
-  }
-  const LifeRender = resolve => {
-    setTimeout(function () {
-      require(['@/components/base/life-render'], resolve);
-    },800);
-  }
-  const MoreHallRender = resolve => {
-    setTimeout(function () {
-      require(['@/components/base/more-hall-render'], resolve);
-    },850);
-  }
-  const TalentNotes = resolve => {
-    setTimeout(function () {
-      require(['@/components/base/talent-notes'], resolve);
-    },900);
-  }
-
-  // const CountDown = () => import('@/components/base/CountDown');
-  // const WelfareRender = () => import('@/components/base/welfare-render');
-  // const HallRender = () => import('@/components/base/hall-render');
-  // const HotHallRender = () => import('@/components/base/hot-hall-render');
-  // const AssembleRender = () => import('@/components/base/assemble-render');
-  // const SelectedRender = () => import('@/components/base/selected-render');
-  // const ExquisiteForeignRender = () => import('@/components/base/exquisite-foreign-render');
-  // const OverseasMilkRender = () => import('@/components/base/overseas-milk-render');
-  // const BabyNutritionRender = () => import('@/components/base/baby-nutrition-render');
-  // const RiceNoodlesRender = () => import('@/components/base/rice-noodles-render');
-  // const DiaperRender = () => import('@/components/base/diaper-render');
-  // const WashCareRender = () => import('@/components/base/wash-care-render');
-  // const FeedingBottleRender = () => import('@/components/base/feeding-bottle-render');
-  // const WearRender = () => import('@/components/base/wear-render');
-  // const MakeupRender = () => import('@/components/base/makeup-render');
-  // const MotherUseRender = () => import('@/components/base/mother-use-render');
-  // const NutritionRender = () => import('@/components/base/nutrition-render');
-  // const LifeRender = () => import('@/components/base/life-render');
-  // const MoreHallRender = () => import('@/components/base/more-hall-render');
-  // const TalentNotes = () => import('@/components/base/talent-notes');
-
-  // <?php
-  // define('IN_ECS', true);
-  // header('Access-Control-Allow-Origin:*');
-  // header('Access-Control-Allow-  Methods: GET, POST, PUT,DELETE,OPTIONS,PATCH');
-  // header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept, Authorization");
-  //
-  // //reply
-  // require('../init.php');
-  // require_once(ROOT_PATH . 'includes/cls_json.php');
-  // require_once(ROOT_PATH . 'includes/cls_jwt.php');
-  //
-  // $json = new JSON;
-  // $results = array('result'=>true, 'data'=>array(1,1,1,1,1,1,1));
-  // exit($json->encode($results));
 
   var preTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+  const CountDown = resolve => require(['@/components/base/count-down'], resolve);
 
   export default{
     name: 'Home',
     components: {
-      CountDown,
-      WelfareRender,
-      HallRender,
-      HotHallRender,
-      AssembleRender,
-      SelectedRender,
-      ExquisiteForeignRender,
-      OverseasMilkRender,
-      BabyNutritionRender,
-      RiceNoodlesRender,
-      DiaperRender,
-      WashCareRender,
-      FeedingBottleRender,
-      WearRender,
-      MakeupRender,
-      MotherUseRender,
-      NutritionRender,
-      LifeRender,
-      MoreHallRender,
-      TalentNotes
+      CountDown
     },
     data () {
       return {
-        gap: 80000,
+        gap: 0,
         navBarFixed: false,
-        bannerList:[
-          {img:require("@/assets/liangfan0826_01.jpg")},
-          {img:require("@/assets/liangfan0826_02.jpg")},
-        ],
-        navData: [
-          {
-            name: '钜惠福利',
-            active: true,
-            index: 1,
-          },
-          {
-            name: '会场直达',
-            active: false,
-            index: 2
-          },
-          {
-            name: '底价拼团',
-            active: false,
-            index: 3
-          },
-          {
-            name: '超级优惠',
-            active: false,
-            index: 4
-          },
-          {
-            name: '精品量贩',
-            active: false,
-            index: 5
-          },
-          {
-            name: '海外奶粉',
-            active: false,
-            index: 6
-          },
-          {
-            name: '婴幼营养',
-            active: false,
-            index: 7
-          },
-          {
-            name: '米粉辅食',
-            active: false,
-            index: 8
-          },
-          {
-            name: '自营尿裤',
-            active: false,
-            index: 9
-          },
-          {
-            name: '宝宝洗护',
-            active: false,
-            index: 10
-          },
-          {
-            name: '奶瓶喂养',
-            active: false,
-            index: 11
-          },
-          {
-            name: '精品童装',
-            active: false,
-            index: 12
-          },
-          {
-            name: '护肤美妆',
-            active: false,
-            index: 13
-          },
-          {
-            name: '妈妈用品',
-            active: false,
-            index: 14
-          },
-          {
-            name: '家人营养',
-            active: false,
-            index: 15
-          },
-          {
-            name: '美食生活',
-            active: false,
-            index: 16
-          },
-          {
-            name: '更多会场',
-            active: false,
-            index: 17
-          }
-        ]
+        bannerList:[],
+        navData: [],
+        home_background:'#FFFFFF'
       }
     },
+    created:function(){
+      let vm = this;
+
+      //render
+      this.$http.get(request.homeRender).then(function(response){
+        let res = response.data;
+        if(200 !== res.code){
+          vm.$toast(lang['REQUEST_ERROR']);
+          return false;
+        }
+
+        //banner
+        let banner_arr  = res.data.home_banner;
+        let home_banner = [];
+        for(let banner of banner_arr){
+          home_banner.push(request.host + banner);
+        }
+        vm.bannerList = home_banner;
+
+        //gap
+        let deadline = helper.strtotime(res.data.activity_deadline);
+        let diff     = deadline - helper.now();
+        vm.gap = diff >= 0 ? diff : 0;
+
+        //style
+        vm.home_background = res.data.home_background;
+      }).catch(function(error){
+        console.log(error);
+        vm.$toast(lang['NETWORK_ERROR']);
+      });
+
+      //nav list
+      this.$http.get(request.navList).then(function(response){
+        let res = response.data;
+        if(200 !== res.code){
+          vm.$toast(lang['REQUEST_ERROR']);
+          return false;
+        }
+
+        let list  = [];
+        let index = 1;
+        for(let item of res.data){
+          item.index  = index;
+          item.active = 1 === index;
+          list.push(item);
+
+          //注册组件
+          let component = item.template ? item.template : 'render-item';
+          item.template = component;
+          Vue.component(component, resolve => {
+            setTimeout(function () {
+              require(['@/components/base/' + component], resolve);
+            },index);
+          });
+
+          index++;
+        }
+        vm.navData = list;
+      }).catch(function(error){
+        console.log(error);
+        vm.$toast(lang['NETWORK_ERROR']);
+      });
+    },
     mounted: function(){
-      // 事件监听滚动条
-      window.addEventListener('scroll', this.watchScroll, true)
+      window.addEventListener('scroll', this.watchScroll, true) // 事件监听滚动条
     },
     methods: {
       scrollTo: function(event){
@@ -640,9 +396,6 @@
     }
   }
 
-  .basic-background{
-    background-color: #DCEAF7;
-  }
   .clear {
     clear: both;
   }

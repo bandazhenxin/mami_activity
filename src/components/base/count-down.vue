@@ -10,7 +10,7 @@
 
 <script>
 export default {
-  name:"CountDown",
+  name:"count-down",
   props:['gap'],
   data () {
     return {
