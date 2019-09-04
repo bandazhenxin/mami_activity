@@ -33,8 +33,24 @@
       :ref="'display' + item.index"
       :style="{background: home_background}"
     >
-      <component :content="item.content" :route="item.route" :is="item.template"></component>
+      <component
+        :content="item.content"
+        :route="item.route"
+        :banner="item.banner"
+        :is="item.template"
+      ></component>
     </div>
+
+    <!--footer-->
+    <div class='basic-render'>
+      <div class="item1">
+        <a href="http://m.guojimami.com/clearance.php">
+          <img v-lazy="require('@/assets/queen38sj_88.jpg')" alt="">
+        </a>
+      </div>
+    </div>
+
+    <talent-notes></talent-notes>
   </div>
 </template>
 
@@ -47,11 +63,17 @@
 
   var preTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
   const CountDown = resolve => require(['@/components/base/count-down'], resolve);
+  const TalentNotes = resolve => {
+    setTimeout(function () {
+      require(['@/components/base/talent-notes'], resolve);
+    },100);
+  }
 
   export default{
     name: 'Home',
     components: {
-      CountDown
+      CountDown,
+      TalentNotes
     },
     data () {
       return {
@@ -109,6 +131,7 @@
           list.push(item);
 
           //注册组件
+          console.log(item.template);
           let component = item.template ? item.template : 'render-item';
           item.template = component;
           Vue.component(component, resolve => {
@@ -176,7 +199,7 @@
             this.activeNav(item.index);
             break;
           }
-          sumHeight += this.$refs[idName].offsetHeight
+          sumHeight += this.$refs[idName][0].offsetHeight
         }
       }
     }

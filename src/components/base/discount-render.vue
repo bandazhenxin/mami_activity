@@ -1,35 +1,47 @@
 <template>
-  <div class='selected-render'>
+  <div class='discount-render'>
     <div class="item1">
-      <a href="http://m.guojimami.com/SuperSales.php">
-        <img v-lazy="require('@/assets/liangfan0826_21.jpg')"  alt="拼团"/>
+      <a v-for="item in bannerList" :href="item.link">
+        <img v-lazy="item.img"  alt="拼团"/>
       </a>
     </div>
     <div class="item2">
       <table>
         <tr>
-          <td v-for="item in test">
+          <td v-for="goods in goodsList">
             <div class="content">
               <div class="ny2015_germany_body1">
                 <div class="goods">
                   <p class="goods_img">
-                    <a href="http://m.guojimami.com/goods-14711-t858.htm" class="good_img">
-                      <img v-lazy="'http://m.guojimami.com/images/201811/thumb_img/14711_thumb_G_1541543137297.jpg'" alt="Mellin 意大利美林三文鱼蔬菜泥2x80g/组 海外本土原版"/>
+                    <a
+                      :href="root + '/' + goods.url"
+                      class="good_img"
+                    >
+                      <img
+                        v-lazy="root + '/' + goods.goods_thumb"
+                        :alt="goods.goods_name"
+                      />
                     </a>
                   </p>
-                  <p class="jiesheng">已团6370件</p>
+                  <p class="jiesheng">限购{{goods.goods_number}}件</p>
                   <p style="display:block; width:130px; margin-left:4%; margin-top:15px; text-align:left; font-family:'PingFang SC Regular'; font-size:12px; color:#000; word-break:keep-all;  white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
-                    <a href="http://m.guojimami.com/goods-14711-t858.htm" style="color:#000;" >Mellin 意大利美林三文鱼蔬菜泥2x80g/组 海外本土原版</a>
+                    <a
+                      :href="root + '/' + goods.url"
+                      style="color:#000;"
+                    >{{goods.goods_name}}</a>
                   </p>
                   <div class="clear"></div>
                   <div class="price">
                     <span class="fh">&yen;</span>
-                    <span class="shop_price2">36</span>
+                    <span class="shop_price2">{{goods.final_price}}</span>
                     <span class="fh1">&yen;</span>
-                    <span class="shop_price1"><del>59</del></span>
+                    <span class="shop_price1"><del>{{goods.market_price}}</del></span>
                   </div>
                   <div class="buy">
-                    <a href="http://m.guojimami.com/goods-14711-t858.htm" style="color:#fff;" >去拼团</a>
+                    <a
+                      :href="root + '/' + goods.url"
+                      style="color:#fff;"
+                    >抢购</a>
                   </div>
                   <div class="clear"></div>
                 </div>
@@ -43,27 +55,52 @@
 </template>
 
 <script>
+import basic from '@/config/basic.js'
+import request from '@/config/request.js'
+import lang from '@/config/lang.js'
+
 export default {
-  name:"selected-render",
+  name:"discount-render",
+  props:['route','banner'],
   data () {
     return {
-      test:[]
+      root: basic.resourcesRoot,
+      bannerList:[],
+      goodsList:[]
     }
   },
-  mounted: function(){
-    let self = this;
-    this.$http.get('http://localhost/mamix/api/activity/test.php').then(function(response){
-      console.log(response.data)
-      if(response.data.result){
-        self.test = response.data;
+  created: function(){
+    let vm = this;
+
+    //banner
+    let bannerList = JSON.parse(this.banner);
+    let list = [];
+
+    for(let banner of bannerList){
+      banner['img'] = basic.resourcesRoot + '/' + banner['img'];
+      list.push(banner);
+    }
+    this.bannerList = list
+
+    //list
+    this.$http.get(request.host + '/index.php/' + vm.route).then(function(response){
+      let res = response.data;
+      if(200 !== res.code){
+        vm.$toast(lang['REQUEST_ERROR']);
+        return false;
       }
+
+      vm.goodsList = res.data;
+    }).catch(function(error){
+      console.log(error);
+      vm.$toast(lang['NETWORK_ERROR']);
     });
   }
 }
 </script>
 
 <style lang="scss">
-  .selected-render{
+  .discount-render{
     img{
       margin: 0px;
       padding: 0px;

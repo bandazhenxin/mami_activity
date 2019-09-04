@@ -1,5 +1,5 @@
 <template>
-  <div class="count-down">
+  <div class="count-down" ref="countDown">
     距结束
     <font>{{day}}</font>天
     <font>{{hour}}</font>时

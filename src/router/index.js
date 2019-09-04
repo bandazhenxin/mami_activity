@@ -8,7 +8,7 @@ Vue.use(Router)
 
 export default new Router({
   mode: 'hash',
-  base: '/myitem',
+  base: '/dist',
   scorllBehavior: () => ({
     y: 0
   }),
