@@ -2,7 +2,7 @@
   <div class='index'>
     <!-- banner图 -->
     <div class='banner' ref='banner'>
-      <img v-for="banner in bannerList" v-lazy="banner" alt="" />
+      <img v-for="banner in bannerList" :src="banner" alt="" />
     </div>
 
     <!-- nav -->
@@ -79,7 +79,10 @@
       return {
         gap: 0,
         navBarFixed: false,
-        bannerList:[],
+        bannerList:[
+          'http://aitamei.guojimami.com/laravel//Uploads/Home/20190903/pinlei0902_01.jpg',
+          'http://aitamei.guojimami.com/laravel//Uploads/Home/20190903/pinlei0902_02.jpg'
+        ],
         navData: [],
         home_background:'#FFFFFF'
       }
@@ -214,9 +217,16 @@
 
   img[lazy="loading"]{
     display:block;
-    width:50px !important;
-    height:50px !important;
+    width:160px !important;
+    height:160px !important;
+    background: url("../assets/lazy.png") no-repeat fixed center;
     margin:0 auto;
+  }
+
+  .index{
+    .banner{
+      min-height: 300px;
+    }
   }
 
   .navBarWrap {

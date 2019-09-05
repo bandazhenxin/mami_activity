@@ -1,8 +1,8 @@
 <template>
   <div class='spell-group'>
     <div class="item1">
-      <a v-for="item in bannerList" :href="item.link">
-        <img v-lazy="item.img"  alt="拼团"/>
+      <a v-for="(item,index) in bannerList" :key="index" :href="item.link">
+        <img :src="item.img"  alt="拼团"/>
       </a>
     </div>
     <div class="item2">

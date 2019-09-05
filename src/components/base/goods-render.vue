@@ -1,8 +1,8 @@
 <template>
   <div class='goods-render basic-render'>
     <div class="item1">
-      <a v-for="item in bannerList" :href="item.link">
-        <img v-lazy="item.img"  alt="抢购"/>
+      <a v-for="(item,index) in bannerList" :key="index" :href="item.link">
+        <img :src="item.img"  alt="抢购"/>
       </a>
     </div>
     <div class="content">
@@ -14,7 +14,7 @@
             </a>
           </p>
           <p class="jiaobiao3">
-            <img v-lazy="root + '/themesmobile/mbts1/images/liangfan0826_jiaobiao.png'">
+            <img :src="root + '/themesmobile/mbts1/images/liangfan0826_jiaobiao.png'">
           </p>
           <p v-if="goods.describe2" class="zhuanxiang">{{goods.describe2}}</p>
           <p v-if="goods.describe1" class="zhuanxiang1">{{goods.describe1}}</p>
@@ -32,7 +32,7 @@
           </div>
     			<div class="buy">
             <a :href="root + '/' + goods.url">
-              <img v-lazy="root + '/themesmobile/mbts1/images/buy1218.png'">
+              <img :src="root + '/themesmobile/mbts1/images/buy1218.png'">
             </a>
           </div>
         </div>
@@ -40,7 +40,7 @@
     </div>
     <div class="item1">
       <a href="http://m.guojimami.com/Supersale.php">
-        <img v-lazy="root + '/themesmobile/mbts1/images/liangfan0826_more.jpg'" alt="更多">
+        <img :src="root + '/themesmobile/mbts1/images/liangfan0826_more.jpg'" alt="更多">
       </a>
     </div>
   </div>

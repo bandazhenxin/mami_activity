@@ -1,6 +1,6 @@
 <template>
   <div class='render-item'>
-    <div class="item"><img v-for="(item,index) in bannerList" :key="index" v-if="item.show" v-lazy="item.img" alt="会场精选" /></div>
+    <div class="item"><img v-for="(item,index) in bannerList" :key="index" v-if="item.show" :src="item.img" alt="会场精选" /></div>
     <div v-html='content'></div>
   </div>
 </template>
@@ -19,7 +19,7 @@ export default {
   created: function(){
     let bannerList = JSON.parse(this.banner);
     let list = [];
-    
+
     if(!bannerList) return false;
 
     for(let banner of bannerList){
@@ -41,6 +41,10 @@ export default {
     margin: 0px;
     padding: 0px;
     border: 0px;
+  }
+
+  .render-item{
+    min-height: 300px;
   }
 
   .item img{
